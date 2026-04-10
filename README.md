@@ -5,6 +5,7 @@ This repository contains a notebook for visual question answering (VQA) on drivi
 ## Repository Contents
 
 - `notebooks/Driving_VQA_v1.ipynb`: End-to-end notebook for loading nuScenes camera images and asking natural language questions about each scene.
+- Colab notebook: [Open in Google Colab](https://colab.research.google.com/drive/1iLR6eBwKxxSYHYqR80B5xrW_zckrOIlo?usp=sharing)
 
 ## What the Notebook Covers
 
