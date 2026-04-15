@@ -6,6 +6,7 @@ This repository contains a notebook for visual question answering (VQA) on drivi
 
 - `notebooks/Driving_VQA_v1.ipynb`: End-to-end notebook for loading nuScenes camera images and asking natural language questions about each scene.
 - `results/examplemulticameraqa.png`: Example output from the multi-camera VQA flow.
+- `results/nuscenesscen0.png`: nuScenes-style multi-camera scene layout (reference visualization).
 - Colab notebook: [Open in Google Colab](https://colab.research.google.com/drive/1iLR6eBwKxxSYHYqR80B5xrW_zckrOIlo?usp=sharing)
 
 ## What the Notebook Covers
@@ -57,6 +58,8 @@ Expected folders include:
 - `v1.0-mini`
 
 Update `NUSCENES_ROOT` in the notebook if your dataset path is different.
+
+![nuScenes multi-camera scene (example)](results/nuscenesscen0.png)
 
 ## Quick Start
 
