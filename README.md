@@ -5,6 +5,7 @@ This repository contains a notebook for visual question answering (VQA) on drivi
 ## Repository Contents
 
 - `notebooks/Driving_VQA_v1.ipynb`: End-to-end notebook for loading nuScenes camera images and asking natural language questions about each scene.
+- `results/examplemulticameraqa.png`: Example output from the multi-camera VQA flow.
 - Colab notebook: [Open in Google Colab](https://colab.research.google.com/drive/1iLR6eBwKxxSYHYqR80B5xrW_zckrOIlo?usp=sharing)
 
 ## What the Notebook Covers
@@ -25,6 +26,10 @@ The notebook is organized into three parts:
    - Loads all six ring cameras for one sample (`CAM_FRONT`, `CAM_FRONT_LEFT`, `CAM_FRONT_RIGHT`, `CAM_BACK`, `CAM_BACK_LEFT`, `CAM_BACK_RIGHT`)
    - **Query analyzer**: a text-only Qwen2-VL step reads the user question and returns a JSON list of which cameras are relevant (with fallbacks if parsing fails)
    - VQA is then grounded on the selected views instead of an arbitrarily selected camera, enabling it to choose which camera(s) to use for answering questions and describe the driving scenario
+
+Example (multi-camera routing and answers):
+
+![Example multi-camera VQA](results/examplemulticameraqa.png)
 
 ## Environment and Dependencies
 
