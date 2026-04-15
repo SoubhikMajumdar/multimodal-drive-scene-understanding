@@ -9,19 +9,22 @@ This repository contains a notebook for visual question answering (VQA) on drivi
 
 ## What the Notebook Covers
 
-The notebook implements two VQA pipelines:
+The notebook is organized into three parts:
 
-1. **BLIP-2 pipeline**
-   - Model: `Salesforce/blip2-opt-2.7b`
+1. **BLIP-2 pipeline** (`Salesforce/blip2-opt-2.7b`)
    - Uses `Blip2Processor` and `Blip2ForConditionalGeneration`
-   - Includes single-image interactive Q&A and multi-sample batch evaluation
+   - Single-image interactive Q&A and a multi-sample loop over nuScenes mini
+   - Saves a figure grid to `blip2_vqa_results.png`
 
-2. **Qwen2-VL pipeline**
-   - Model: `Qwen/Qwen2-VL-2B-Instruct`
-   - Uses `Qwen2VLForConditionalGeneration` and `AutoProcessor`
-   - Includes single-image test prompts and an interactive question widget
+2. **Qwen2-VL pipeline** (`Qwen/Qwen2-VL-2B-Instruct`)
+   - Uses `Qwen2VLForConditionalGeneration` and `AutoProcessor` with `qwen_vl_utils.process_vision_info`
+   - Single-image VQA, test prompts, and an interactive question widget
+   - Primarily uses `CAM_FRONT` for these cells
 
-Both sections read `CAM_FRONT` images from nuScenes mini (`v1.0-mini`) and generate short answers to user questions.
+3. **Multi-camera VQA**
+   - Loads all six ring cameras for one sample (`CAM_FRONT`, `CAM_FRONT_LEFT`, `CAM_FRONT_RIGHT`, `CAM_BACK`, `CAM_BACK_LEFT`, `CAM_BACK_RIGHT`)
+   - **Query analyzer**: a text-only Qwen2-VL step reads the user question and returns a JSON list of which cameras are relevant (with fallbacks if parsing fails)
+   - VQA is then grounded on the selected views instead of only the front camera
 
 ## Environment and Dependencies
 
@@ -61,6 +64,7 @@ Update `NUSCENES_ROOT` in the notebook if your dataset path is different.
    - Load model and processor
    - Run VQA on `CAM_FRONT` samples
 4. Use interactive text widgets to ask scene questions (for example, traffic conditions, lane state, and nearby objects).
+5. For multi-camera flow, run the **Multi Camera VQA** cells so the router can pick views (e.g. left lane change vs. weather) before answering.
 
 ## Notes
 
