@@ -24,7 +24,7 @@ The notebook is organized into three parts:
 3. **Multi-camera VQA**
    - Loads all six ring cameras for one sample (`CAM_FRONT`, `CAM_FRONT_LEFT`, `CAM_FRONT_RIGHT`, `CAM_BACK`, `CAM_BACK_LEFT`, `CAM_BACK_RIGHT`)
    - **Query analyzer**: a text-only Qwen2-VL step reads the user question and returns a JSON list of which cameras are relevant (with fallbacks if parsing fails)
-   - VQA is then grounded on the selected views instead of only the front camera
+   - VQA is then grounded on the selected views instead of an arbitrarily selected camera, enabling it to choose which camera(s) to use for answering questions and describe the driving scenario
 
 ## Environment and Dependencies
 
